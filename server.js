@@ -17,6 +17,16 @@ app.set('view engine', 'ejs');
 app.get('/', function(req, res){
 	res.render('index', {title: 'hello world!'})
 });
+	
+app.get('/bears', function(req, res){
+	Bear.find(function(err, bears){
+		if(err){
+			console.log(err)
+		} else {
+			res.render('bears', { bears: bears})
+		}
+	})
+});
 
 app.get('/about', function(req, res){
 	var data = {};
@@ -26,10 +36,11 @@ app.get('/about', function(req, res){
 	res.render('about', data);
 });
 
-app.get('/bears', function(req, res){
-	var data = {};
-	data.title = 'Bears'
-	res.render('bears', data)
+app.get('/bears', function(req,res){
+    var data = {};
+    data.title = "Bears oh my!"
+
+    res.render('bears', data)
 });
 
 var port = process.env.PORT || 8080;
