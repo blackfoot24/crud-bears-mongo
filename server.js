@@ -26,6 +26,12 @@ app.get('/about', function(req, res){
 	res.render('about', data);
 });
 
+app.get('/bears', function(req, res){
+	var data = {};
+	data.title = 'Bears'
+	res.render('bears', data)
+});
+
 var port = process.env.PORT || 8080;
 
 var router = express.Router();
