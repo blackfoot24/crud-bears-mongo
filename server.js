@@ -19,7 +19,11 @@ app.get('/', function(req, res){
 });
 
 app.get('/about', function(req, res){
-	res.render('about', {title: 'Page about bears'})
+	var data = {};
+	data.title = 'About Page';
+	data.name = 'Teague';
+	data.time = new Date();
+	res.render('about', data);
 });
 
 var port = process.env.PORT || 8080;
